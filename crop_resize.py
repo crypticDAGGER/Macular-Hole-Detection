@@ -16,16 +16,17 @@ def crop_image(event,x,y,flags,param):
         cv2.imshow("Image",img)
         
 for image in glob.glob("*.jpg"): #Iterates through all JPEG images in working directory
-    img=cv2.imread(image)
-    img_copy=img.copy()
-    cv2.namedWindow("Image")
-    cv2.setMouseCallback("Image",crop_image)
-
-    while(1): #Loops until ESC is pressed
+    while(1): #Loops until 'c' is pressed.Crops image if 'c' is pressed else resets image
+        img=cv2.imread(image)
+        img_copy=img.copy()
+        cv2.namedWindow("Image")
+        cv2.setMouseCallback("Image",crop_image)
         cv2.imshow("Image",img)
         key=cv2.waitKey(0) & 0xFF
-        if key==(27):
+        if key==ord("c"):
             break
+        else:
+            continue
 
     crop_img=img_copy[coords[0][1]:coords[1][1],coords[0][0]:coords[1][0]] #Crops within the coordinates
     m=re.search('(.+?).jpg',image)
