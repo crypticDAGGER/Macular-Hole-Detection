@@ -16,6 +16,7 @@ def crop_image(event,x,y,flags,param):
         cv2.imshow("Image",img)
         
 for image in glob.glob("*.jpg"): #Iterates through all JPEG images in working directory
+    
     while(1): #Loops until 'c' is pressed.Crops image if 'c' is pressed else resets image
         img=cv2.imread(image)
         img_copy=img.copy()
@@ -29,11 +30,13 @@ for image in glob.glob("*.jpg"): #Iterates through all JPEG images in working di
             continue
 
     crop_img=img_copy[coords[0][1]:coords[1][1],coords[0][0]:coords[1][0]] #Crops within the coordinates
+   
     m=re.search('(.+?).jpg',image)
     if m:
         resize_img=cv2.resize(crop_img,(128,128)) #Resizes the cropped image
         cv2.imshow("Cropped Image",crop_img)
         cv2.imwrite(m.group(1)+"-crop.jpg",resize_img) #Writes resized image to working directory
+   
     key=cv2.waitKey(0) & 0xFF
     if key==(27):
         cv2.destroyAllWindows() #Closes all windows 
