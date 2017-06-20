@@ -8,7 +8,7 @@ Resize all excrated macula into a uniform (128*128)
 
 Data augmentation(*) -- rotation, brightness, invert, warp
 
-Do some basic preprocessing
+Do some basic preprocessing -- Normalising, CLAHE, gabor
 
 Split into train, val, test
 
