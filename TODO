@@ -6,18 +6,15 @@ Make a cropping mechanism for easily cropping out the maculas (OpenCV)
 
 Resize all excrated macula into a uniform (128*128)
 
-Data augmentation(*) -- rotation, brightness, invert, warp
+Data augmentation(*) -- rotation, invert, shear
 
-Do some basic preprocessing -- Normalising, CLAHE, gabor
+Do some basic preprocessing -- Normalising, CLAHE, Noise Reductions
 
 Split into train, val, test
 
-Feature extracts -- HOG
+Feature extracts -- HOG,SIFT,LBP
 
 Build the classifiers using sklearn -- 
-	SVM
-	Naive Bayes
-	Neural network
-	KNN
-	K-Means
-	Decision Tree
+	SVM - Gaussian, Linear or Quadratic kernel
+	Boosted Random Forest
+	1 Layer Softmax
